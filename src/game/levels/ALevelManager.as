@@ -6,7 +6,7 @@ package game.levels {
 	 * @author Aymeric
 	 */
 	public class ALevelManager extends AGameData {	
-		public function ALevelManager() {
+		public function ALevelManager():void {
 			
 			super();
 			

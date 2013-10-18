@@ -14,6 +14,7 @@ package game.levels {
 	import citrus.utils.objectmakers.ObjectMaker2D;
 	import citrus.view.starlingview.AnimationSequence;
 	import citrus.core.starling.StarlingState;
+	import citrus.view.starlingview.StarlingArt;
 	
 	import org.osflash.signals.Signal;
 	
@@ -41,13 +42,10 @@ package game.levels {
 		
 		[Embed(source="../embed/PlayerSprite.png")]
 		private var _heroPng:Class;
-
-		
-		protected var _bullzors:Vector.<CitrusObject>;
 		
 		private var _levelObjectsMC:MovieClip;
 		
-		public function ALevels(levelObjectsMC:MovieClip) {
+		public function ALevels(levelObjectsMC:MovieClip):void {
 			
 			super();
 			
@@ -80,7 +78,7 @@ package game.levels {
 			_hero = Hero(getFirstObjectByType(Hero));
 			_hero.view = new AnimationSequence(sTextureAtlas, ["walk", "duck", "idle", "jump", "hurt"], "idle");
 			_hero.hurtDuration = 500;
-			
+			StarlingArt.setLoopAnimations(["idle"]); 
 			//_declik.onJump.add(_jump);
 			//_declik.onAnimationChange.add(_animationChange);
 			

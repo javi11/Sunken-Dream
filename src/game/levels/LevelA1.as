@@ -7,7 +7,7 @@ package game.levels {
 	 */
 	public class LevelA1 extends ALevels {
 		
-		public function LevelA1(levelObjectsMC:MovieClip) {
+		public function LevelA1(levelObjectsMC:MovieClip):void {
 			super(levelObjectsMC);
 		}
 		

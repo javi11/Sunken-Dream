@@ -9,7 +9,7 @@ package game {
 	import citrus.core.starling.StarlingCitrusEngine;
 	import flash.system.Security;
 	
-	[SWF(frameRate="30")]
+	[SWF(frameRate="50")]
 	/**
 	 * @author Aymeric
 	 */
