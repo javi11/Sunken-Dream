@@ -14,8 +14,8 @@ Versiones
 
 Version 1.0:
 
-  -Movimientos básicos del personaje (Iquierda, Derecha, Salto, Agaxarse)\n
-  -Permitir disparar proyectiles\n
-  -Primer Enemigo\n
-  -Animaciones de todos los movimientos básicos\n
-  -Colisiones con el entorno\n
+  * Movimientos básicos del personaje (Iquierda, Derecha, Salto, Agaxarse)
+  * Permitir disparar proyectiles
+  * Primer Enemigo
+  * Animaciones de todos los movimientos básicos
+  * Colisiones con el entorno
