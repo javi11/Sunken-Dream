@@ -5,28 +5,28 @@ package game.levels {
 	import citrus.core.CitrusEngine;
 	import citrus.core.CitrusObject;
 	import citrus.core.State;
+	import citrus.core.starling.StarlingState;
 	import citrus.math.MathVector;
 	import citrus.objects.CitrusSprite;
 	import citrus.objects.platformer.box2d.Platform;
 	import citrus.objects.platformer.box2d.Sensor;
-	import citrus.objects.platformer.box2d.Hero;
 	import citrus.physics.box2d.Box2D;
 	import citrus.utils.objectmakers.ObjectMaker2D;
 	import citrus.view.starlingview.AnimationSequence;
-	import citrus.core.starling.StarlingState;
 	import citrus.view.starlingview.StarlingArt;
+	
+	import flash.display.Bitmap;
+	import flash.display.MovieClip;
+	import flash.geom.Point;
+	import flash.geom.Rectangle;
+	
+	import game.Player;
 	
 	import org.osflash.signals.Signal;
 	
 	import starling.text.BitmapFont;
 	import starling.textures.Texture;
 	import starling.textures.TextureAtlas;
-	
-	import flash.display.MovieClip;
-	import flash.geom.Rectangle;
-	import flash.geom.Point;
-	import flash.display.Bitmap;
-	
 	/**
 	 * @author Aymeric
 	 */
@@ -35,7 +35,7 @@ package game.levels {
 		public var lvlEnded:Signal;
 		public var restartLevel:Signal;
 		
-		protected var _hero:Hero;
+		protected var _hero:Player;
 		
 		[Embed(source="../embed/PlayerSprite.xml", mimeType="application/octet-stream")]
 		private var _heroConfig:Class;
@@ -56,7 +56,7 @@ package game.levels {
 			lvlEnded = new Signal();
 			restartLevel = new Signal();
 			
-			var objects:Array = [Hero,Platform, CitrusSprite, Sensor];
+			var objects:Array = [Platform, CitrusSprite, Sensor];
 		}
 		
 		override public function initialize():void {
@@ -74,10 +74,11 @@ package game.levels {
 			var texture:Texture = Texture.fromBitmap(bitmap);
 			var xml:XML = XML(new _heroConfig());
 			var sTextureAtlas:TextureAtlas = new TextureAtlas(texture, xml);
+			var animation:AnimationSequence =  new AnimationSequence(sTextureAtlas, ["walk", "duck", "idle", "jump", "hurt"], "idle");
 			
-			_hero = Hero(getFirstObjectByType(Hero));
-			_hero.view = new AnimationSequence(sTextureAtlas, ["walk", "duck", "idle", "jump", "hurt"], "idle");
-			_hero.hurtDuration = 500;
+			_hero = new Player("Player",{ x:40, y:10, width:56, height:136, view: animation });
+			add(_hero);
+			
 			StarlingArt.setLoopAnimations(["idle"]); 
 			//_declik.onJump.add(_jump);
 			//_declik.onAnimationChange.add(_animationChange);
