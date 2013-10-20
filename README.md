@@ -1,4 +1,4 @@
-Sunken-Dream
+\nSunken-Dream
 ============
 
 El proyecto trata de crear un juego Flash en AS3(Action Script 3), el cual implementará una nueva forma de jugabilidad en la que los niveles de este son publicados cada cierto tiempo, a modo de serie de TV.
@@ -14,8 +14,8 @@ Versiones
 
 Version 1.0:
 
-  -Movimientos básicos del personaje (Iquierda, Derecha, Salto, Agaxarse)
-  -Permitir disparar proyectiles
-  -Primer Enemigo
-  -Animaciones de todos los movimientos básicos
-  -Colisiones con el entorno
+  -Movimientos básicos del personaje (Iquierda, Derecha, Salto, Agaxarse)\n
+  -Permitir disparar proyectiles\n
+  -Primer Enemigo\n
+  -Animaciones de todos los movimientos básicos\n
+  -Colisiones con el entorno\n
