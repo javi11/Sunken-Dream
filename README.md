@@ -1,4 +1,4 @@
-\nSunken-Dream
+Sunken-Dream
 ============
 
 El proyecto trata de crear un juego Flash en AS3(Action Script 3), el cual implementará una nueva forma de jugabilidad en la que los niveles de este son publicados cada cierto tiempo, a modo de serie de TV.
