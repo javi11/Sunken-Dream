@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2013-11-09" view-index="0" gantt-divider-location="353" resource-divider-location="300" version="2.0" locale="es_ES">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2013-11-05" view-index="0" gantt-divider-location="353" resource-divider-location="300" version="2.0" locale="es">
     <description/>
     <view zooming-state="default:2" id="gantt-chart">
         <field id="tpd3" name="Nombre" width="57" order="0"/>
@@ -46,9 +46,9 @@
             <task id="35" name="implementacion" color="#8cb6ce" meeting="false" start="2013-10-11" duration="7" complete="0" expand="true"/>
             <task id="24" name="Diseño" color="#8cb6ce" meeting="false" start="2013-10-01" duration="8" complete="0" expand="true"/>
         </task>
-        <task id="39" name="Diseño Personajes" color="#8cb6ce" meeting="false" start="2013-10-21" duration="27" complete="0" expand="true">
-            <task id="41" name="Animación" color="#8cb6ce" meeting="false" start="2013-11-11" duration="12" complete="0" expand="true"/>
-            <task id="40" name="Diseño" color="#8cb6ce" meeting="false" start="2013-10-21" duration="15" complete="0" expand="true"/>
+        <task id="39" name="Diseño Personajes" color="#8cb6ce" meeting="false" start="2013-10-21" duration="51" complete="0" expand="true">
+            <task id="41" name="Animación" color="#8cb6ce" meeting="false" start="2013-11-11" duration="36" complete="0" expand="true"/>
+            <task id="40" name="Diseño" color="#8cb6ce" meeting="false" start="2013-10-21" duration="51" complete="0" expand="true"/>
         </task>
         <task id="44" name="Primer Nivel" color="#8cb6ce" meeting="false" start="2013-11-26" duration="16" complete="0" expand="true">
             <task id="48" name="Evaluación" color="#8cb6ce" meeting="false" start="2013-12-16" duration="2" complete="0" expand="true"/>
@@ -64,7 +64,8 @@
             <task id="64" name="Evaluación" color="#8cb6ce" meeting="false" start="2014-01-10" duration="1" complete="0" expand="true"/>
             <task id="62" name="Implementación" color="#8cb6ce" meeting="false" start="2014-01-02" duration="6" complete="0" expand="true"/>
         </task>
-        <task id="65" name="Menú principal" color="#8cb6ce" meeting="false" start="2013-11-01" duration="3" complete="0" expand="true"/>
+        <task id="65" name="Menú principal" color="#8cb6ce" meeting="false" start="2013-12-18" duration="3" complete="0" expand="true"/>
+        <task id="68" name="Beta y Alpha test" color="#8cb6ce" meeting="false" start="2013-11-26" duration="35" complete="0" expand="true"/>
         <task id="67" name="Pruebas Finales" color="#8cb6ce" meeting="false" start="2014-01-13" duration="5" complete="0" expand="true"/>
     </tasks>
     <resources/>

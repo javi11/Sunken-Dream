@@ -1,0 +1,534 @@
+<diagram>
+  <package name="game" width="1812" height="2054" minWidth="1812" x="-164" minHeight="2054" y="0"/>
+  <package name="game.weapons" width="333" height="414" minWidth="333" x="566" minHeight="414" y="157"/>
+  <externalRelation name="relation" type="generalization" from="game.weapons.CocoCannon" to="citrus.objects.Box2DPhysicsObject"/>
+  <class name="game.weapons.CocoCannon" isInner="false" visibility="public" isMxml="false" width="241" height="314" x="598" y="206">
+    <asdoc name="AsDoc" content=""/>
+    <property name="animationSequence" type="citrus.view.starlingview.AnimationSequence" visibility="public" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="dying" type="Boolean" visibility="public" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_bulletWidth" type="int" visibility="public" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_bulletHeight" type="int" visibility="public" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_collisionY" type="int" visibility="public" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_weaponConfig" type="Class" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_weaponAtf" type="Class" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <method name="CocoCannon" returnType="@constructor" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="name" type="String" defaultValue=""/>
+      <argument name="posX" type="int" defaultValue=""/>
+      <argument name="posY" type="int" defaultValue=""/>
+    </method>
+    <method name="setView" returnType="void" visibility="private">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+    <method name="handleArtReady" returnType="void" visibility="public" isOverriden="true">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="citrusArt" type="citrus.view.ICitrusArt" defaultValue=""/>
+    </method>
+    <method name="handleAnimationComplete" returnType="void" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="animationName" type="String" defaultValue=""/>
+    </method>
+    <method name="update" returnType="void" visibility="public" isOverriden="true">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="timeDelta" type="Number" defaultValue=""/>
+    </method>
+    <method name="handleBeginContact" returnType="void" visibility="public" isOverriden="true">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="contact" type="Box2D.Dynamics.Contacts.b2Contact" defaultValue=""/>
+    </method>
+    <method name="destroy" returnType="void" visibility="public" isOverriden="true">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+  </class>
+  <class name="game.Weapon" isInner="false" visibility="public" isMxml="false" width="202" height="364" x="913" y="225">
+    <asdoc name="AsDoc" content=""/>
+    <property name="_ce" type="citrus.core.CitrusEngine" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_defaultWeapon" type="String" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_weapon" type="game.Inventory.GameObject" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_vel" type="Array" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="inventory" type="game.Inventory.Inventory" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <method name="Weapon" returnType="@constructor" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+    <method name="setBullets" returnType="void" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="num" type="int" defaultValue=""/>
+    </method>
+    <method name="addBullet" returnType="void" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+    <method name="updateInventory" returnType="void" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+    <method name="selectWeapon" returnType="void" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="name" type="String" defaultValue=""/>
+    </method>
+    <method name="shoot" returnType="void" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="position" type="Boolean" defaultValue=""/>
+      <argument name="posX" type="int" defaultValue=""/>
+      <argument name="posY" type="int" defaultValue=""/>
+      <argument name="player" type="Array" defaultValue=""/>
+    </method>
+    <method name="iniDummyVariables" returnType="void" visibility="private">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+  </class>
+  <package name="game.ui" minWidth="572" x="1044" minHeight="475" y="670" width="572" height="475"/>
+  <externalRelation name="relation" type="generalization" from="game.ui.UsedItem" to="starling.display.Sprite"/>
+  <class name="game.ui.UsedItem" isInner="false" visibility="public" isMxml="false" width="178" height="164" x="1076" y="702">
+    <asdoc name="AsDoc" content="@author Javier"/>
+    <property name="_itemBox" type="starling.display.Image" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_usedItem" type="starling.display.Image" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <method name="UsedItem" returnType="@constructor" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="Texture" type="starling.textures.TextureAtlas" defaultValue=""/>
+    </method>
+    <method name="set" returnType="void" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="Texture" type="starling.textures.TextureAtlas" defaultValue=""/>
+      <argument name="name" type="String" defaultValue=""/>
+    </method>
+  </class>
+  <externalRelation name="relation" type="generalization" from="game.ui.MessageBox" to="starling.display.Sprite"/>
+  <class name="game.ui.MessageBox" isInner="false" visibility="public" isMxml="false" width="268" height="139" x="1309" y="703">
+    <asdoc name="AsDoc" content="@author Javier"/>
+    <property name="_textField" type="starling.text.TextField" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <method name="MessageBox" returnType="@constructor" visibility="internal">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="text" type="String" defaultValue=""/>
+      <argument name="width" type="int" defaultValue=""/>
+      <argument name="height" type="int" defaultValue=""/>
+      <argument name="plainColor" type="int" defaultValue="0xFFFFFF"/>
+      <argument name="borderColor" type="int" defaultValue="0x000000"/>
+      <argument name="borderThickness" type="int" defaultValue="1"/>
+      <argument name="fontSize" type="int" defaultValue="18"/>
+      <argument name="fontColor" type="uint" defaultValue="Color.BLACK"/>
+    </method>
+    <method name="set" returnType="void" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="text" type="String" defaultValue=""/>
+    </method>
+  </class>
+  <externalRelation name="relation" type="generalization" from="game.ui.LifeBar" to="starling.display.Sprite"/>
+  <class name="game.ui.LifeBar" isInner="false" visibility="public" isMxml="false" width="151" height="264" x="1267" y="849">
+    <asdoc name="AsDoc" content="@author Javier"/>
+    <property name="_maxHP" type="int" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_currentHP" type="int" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_percentHP" type="Number" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_lifeBar" type="starling.display.Image" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_life" type="starling.display.Image" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <method name="LifeBar" returnType="@constructor" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="Texture" type="starling.textures.TextureAtlas" defaultValue=""/>
+    </method>
+    <method name="handleDamage" returnType="void" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="damage" type="int" defaultValue=""/>
+    </method>
+    <method name="updateLifeBar" returnType="void" visibility="private">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+  </class>
+  <externalRelation name="relation" type="generalization" from="game.Player" to="citrus.objects.platformer.box2d.Hero"/>
+  <class name="game.Player" isInner="false" visibility="public" isMxml="false" width="143" height="114" x="961" y="66">
+    <asdoc name="AsDoc" content=""/>
+    <property name="weapon" type="game.Weapon" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <method name="Player" returnType="@constructor" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="name" type="String" defaultValue=""/>
+      <argument name="params" type="Object" defaultValue="null"/>
+    </method>
+    <method name="update" returnType="void" visibility="public" isOverriden="true">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="timeDelta" type="Number" defaultValue=""/>
+    </method>
+  </class>
+  <class name="game.MyGameData" isInner="false" visibility="public" isMxml="false" width="175" height="72" x="851" y="1079">
+    <asdoc name="AsDoc" content=""/>
+    <method name="MyGameData" returnType="@constructor" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+  </class>
+  <externalRelation name="relation" type="generalization" from="game.Main" to="citrus.core.starling.StarlingCitrusEngine"/>
+  <class name="game.Main" isInner="false" visibility="public" isMxml="false" width="195" height="147" x="836" y="889">
+    <asdoc name="AsDoc" content="@author Javier"/>
+    <method name="Main" returnType="@constructor" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+    <method name="handleAddedToStage" returnType="void" visibility="protected" isOverriden="true">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="e" type="flash.events.Event" defaultValue=""/>
+    </method>
+    <method name="handleStarlingReady" returnType="void" visibility="public" isOverriden="true">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+    <method name="_onLevelChanged" returnType="void" visibility="private">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="lvl" type="game.levels.ALevels" defaultValue=""/>
+    </method>
+    <method name="_restartLevel" returnType="void" visibility="private">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+    <method name="_nextLevel" returnType="void" visibility="private">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+  </class>
+  <package name="game.levels" minWidth="486" x="1129" minHeight="598" y="67" width="486" height="598"/>
+  <externalRelation name="relation" type="generalization" from="game.levels.LevelObjects" to="citrus.objects.platformer.box2d.Coin"/>
+  <class name="game.levels.LevelObjects" isInner="false" visibility="public" isMxml="false" width="200" height="239" x="1161" y="104">
+    <asdoc name="AsDoc" content="@author laris11"/>
+    <property name="onBeingCollected" type="org.osflash.signals.Signal" visibility="public" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="inventory" type="game.Inventory.Inventory" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_objectProperties" type="flash.utils.Dictionary" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_name" type="String" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_texture" type="starling.textures.Texture" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <method name="LevelObjects" returnType="@constructor" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="name" type="String" defaultValue=""/>
+      <argument name="params" type="Object" defaultValue="null"/>
+    </method>
+    <method name="setObjectPropertys" returnType="void" visibility="private">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="properties" type="XMLList" defaultValue=""/>
+    </method>
+    <method name="handleBeginContact" returnType="void" visibility="public" isOverriden="true">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="contact" type="Box2D.Dynamics.Contacts.b2Contact" defaultValue=""/>
+    </method>
+    <method name="update" returnType="void" visibility="public" isOverriden="true">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="timeDelta" type="Number" defaultValue=""/>
+    </method>
+  </class>
+  <externalRelation name="relation" type="generalization" from="game.levels.LevelA1" to="game.levels.ALevels"/>
+  <class name="game.levels.LevelA1" isInner="false" visibility="public" isMxml="false" width="178" height="414" x="1397" y="104">
+    <asdoc name="AsDoc" content="@author Javier"/>
+    <property name="LOCKED" type="int" visibility="public" hasGetter="false" hasSetter="false" isConstant="true" isStatic="true">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="UNLOCKED" type="int" visibility="public" hasGetter="false" hasSetter="false" isConstant="true" isStatic="true">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_status" type="int" visibility="public" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_inventory" type="game.Inventory.Inventory" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_hero" type="game.Player" visibility="protected" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_heroConfig" type="Class" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_heroAtf" type="Class" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_objects" type="Class" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_objectslevel1" type="Class" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <method name="LevelA1" returnType="@constructor" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="levelObjectsMC" type="flash.display.MovieClip" defaultValue=""/>
+    </method>
+    <method name="initialize" returnType="void" visibility="public" isOverriden="true">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+    <method name="addObjects" returnType="void" visibility="private">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+    <method name="loadCaractersTextures" returnType="void" visibility="private">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+    <method name="setStatus" returnType="void" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="status" type="int" defaultValue=""/>
+    </method>
+    <method name="getStatus" returnType="int" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+  </class>
+  <externalRelation name="relation" type="generalization" from="game.levels.ALevels" to="citrus.core.starling.StarlingState"/>
+  <class name="game.levels.ALevels" isInner="false" visibility="public" isMxml="false" width="170" height="214" x="1179" y="419">
+    <asdoc name="AsDoc" content="@author Javier"/>
+    <property name="lvlEnded" type="org.osflash.signals.Signal" visibility="public" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="restartLevel" type="org.osflash.signals.Signal" visibility="public" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_levelObjectsMC" type="flash.display.MovieClip" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_inventory" type="game.Inventory.Inventory" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_ui" type="citrus.ui.starling.basic.BasicUI" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_lifeBar" type="game.ui.LifeBar" visibility="public" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_usedItem" type="game.ui.UsedItem" visibility="public" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_uiTextures" type="starling.textures.TextureAtlas" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_inventoryShow" type="Boolean" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_ObjectTexturePack" type="starling.textures.TextureAtlas" visibility="public" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_uiConfig" type="Class" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_uiAtf" type="Class" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_objectsSpritesConfig" type="Class" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_objectsSpritesAtf" type="Class" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <method name="ALevels" returnType="@constructor" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="levelObjectsMC" type="flash.display.MovieClip" defaultValue=""/>
+    </method>
+    <method name="initialize" returnType="void" visibility="public" isOverriden="true">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+    <method name="loadObjectSprite" returnType="void" visibility="private">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+    <method name="addDefaultWeapon" returnType="void" visibility="private">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+    <method name="setupUi" returnType="void" visibility="protected">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+    <method name="onInventoryClick" returnType="void" visibility="private">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+    <method name="destroy" returnType="void" visibility="public" isOverriden="true">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+    <method name="update" returnType="void" visibility="public" isOverriden="true">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="timeDelta" type="Number" defaultValue=""/>
+    </method>
+    <method name="handleLoadComplete" returnType="void" visibility="private">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+  </class>
+  <package name="game.Inventory" minWidth="469" x="371" minHeight="483" y="585" width="469" height="483"/>
+  <externalRelation name="relation" type="generalization" from="game.Inventory.Inventory" to="starling.display.Sprite"/>
+  <class name="game.Inventory.Inventory" isInner="false" visibility="public" isMxml="false" width="200" height="389" x="608" y="635">
+    <asdoc name="AsDoc" content=""/>
+    <property name="slots" type="flash.utils.Dictionary" visibility="public" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_instance" type="game.Inventory.Inventory" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="true">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_inventoryView" type="starling.display.Image" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_inventorySprite" type="starling.display.Sprite" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_paddingX" type="int" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_paddingY" type="int" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <method name="Inventory" returnType="@constructor" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+    <method name="getInstance" returnType="game.Inventory.Inventory" visibility="public" isStatic="true">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+    <method name="clear" returnType="void" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+    <method name="add" returnType="void" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="gameObject" type="game.Inventory.GameObject" defaultValue=""/>
+    </method>
+    <method name="set" returnType="void" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="gameObject" type="game.Inventory.GameObject" defaultValue=""/>
+      <argument name="num" type="int" defaultValue=""/>
+    </method>
+    <method name="remove" returnType="void" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="gameObject" type="game.Inventory.GameObject" defaultValue=""/>
+    </method>
+    <method name="get" returnType="game.Inventory.GameObject" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="name" type="String" defaultValue=""/>
+    </method>
+    <method name="status" returnType="Boolean" visibility="public" restArgument="flags">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="name" type="String" defaultValue=""/>
+    </method>
+    <method name="showInventory" returnType="void" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="Texture" type="starling.textures.TextureAtlas" defaultValue=""/>
+    </method>
+    <method name="hideInventory" returnType="void" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+    <method name="makeInventoryItems" returnType="void" visibility="private">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+    <method name="useItem" returnType="void" visibility="private">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="e" type="flash.events.Event" defaultValue=""/>
+    </method>
+    <method name="isEmptyInventory" returnType="Boolean" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+  </class>
+  <externalRelation name="relation" type="generalization" from="game.Inventory.GameObject" to="starling.display.Sprite"/>
+  <class name="game.Inventory.GameObject" isInner="false" visibility="public" isMxml="false" width="182" height="289" x="403" y="649">
+    <asdoc name="AsDoc" content="@author Javier"/>
+    <property name="LOCKED" type="int" visibility="public" hasGetter="false" hasSetter="false" isConstant="true" isStatic="true">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="UNLOCKED" type="int" visibility="public" hasGetter="false" hasSetter="false" isConstant="true" isStatic="true">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="WIDTH" type="int" visibility="private" hasGetter="false" hasSetter="false" isConstant="true" isStatic="true">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="HEIGHT" type="int" visibility="private" hasGetter="false" hasSetter="false" isConstant="true" isStatic="true">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_objectProperties" type="flash.utils.Dictionary" visibility="public" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_textureSprite" type="starling.display.Image" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_oldX" type="int" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_oldY" type="int" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <property name="_numObjects" type="game.ui.MessageBox" visibility="private" hasGetter="false" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <method name="GameObject" returnType="@constructor" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="property" type="flash.utils.Dictionary" defaultValue=""/>
+      <argument name="texture" type="starling.textures.Texture" defaultValue=""/>
+    </method>
+    <method name="buildSlot" returnType="void" visibility="private">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+    <method name="set" returnType="void" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="key" type="String" defaultValue=""/>
+      <argument name="value" type="*" defaultValue=""/>
+    </method>
+    <method name="get" returnType="*" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="key" type="String" defaultValue=""/>
+    </method>
+    <method name="touchHandler" returnType="void" visibility="private">
+      <asdoc name="AsDoc" content=""/>
+      <argument name="e" type="starling.events.TouchEvent" defaultValue=""/>
+    </method>
+    <method name="updateObject" returnType="void" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+  </class>
+  <externalRelation name="relation" type="generalization" from="game.ALevelManager" to="citrus.utils.AGameData"/>
+  <class name="game.ALevelManager" isInner="false" visibility="public" isMxml="false" width="185" height="114" x="845" y="713">
+    <asdoc name="AsDoc" content="@author Javier"/>
+    <method name="ALevelManager" returnType="@constructor" visibility="public">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+    <property name="_levels" type="Array" visibility="public" hasGetter="true" hasSetter="false" isConstant="false" isStatic="false">
+      <asdoc name="AsDoc" content=""/>
+    </property>
+    <method name="destroy" returnType="void" visibility="public" isOverriden="true">
+      <asdoc name="AsDoc" content=""/>
+    </method>
+  </class>
+  <relation name="relation" type="composition" from="game.Player" to="game.Weapon" shape=""/>
+  <relation name="relation" type="composition" from="game.levels.ALevels" to="game.Inventory.Inventory" shape="911,671"/>
+  <relation name="relation" type="composition" from="game.Inventory.Inventory" to="game.Inventory.GameObject" shape=""/>
+  <relation name="relation" type="composition" from="game.levels.LevelA1" to="game.levels.LevelObjects" shape=""/>
+  <relation name="relation" type="association" from="game.levels.LevelA1" to="game.levels.ALevels" shape=""/>
+  <relation name="relation" type="composition" from="game.levels.LevelA1" to="game.Player" shape="1166,56"/>
+  <relation name="relation" type="aggregation" from="game.Weapon" to="game.weapons.CocoCannon" shape=""/>
+  <relation name="relation" type="composition" from="game.levels.ALevels" to="game.ui.UsedItem" shape=""/>
+  <relation name="relation" type="composition" from="game.levels.ALevels" to="game.ui.MessageBox" shape=""/>
+  <relation name="relation" type="composition" from="game.Main" to="game.ALevelManager" shape=""/>
+  <relation name="relation" type="composition" from="game.Main" to="game.MyGameData" shape=""/>
+  <relation name="relation" type="composition" from="game.levels.ALevels" to="game.ui.LifeBar" shape=""/>
+  <relation name="relation" type="composition" from="game.ALevelManager" to="game.levels.ALevels" shape="1196,656;1031,671"/>
+</diagram>
