@@ -30,10 +30,14 @@ package game.levels {
 
 		public function LevelObjects(name : String, params : Object = null) : void {
 			super(name, params);
+			x = params['x'];
+			y = params['y'];
 			_objectProperties = new Dictionary();
-
-			setObjectPropertys(params['properties']);
-
+			if (params['properties']) {
+				_objectProperties = xmlToDictionary(params['properties']);
+			} else {
+				_objectProperties = objectToDictionary(params);
+			}
 			_texture = Assets.getAtlas('objects').getTexture(_objectProperties['texture']);
 			inventory = Inventory.getInstance();
 
@@ -47,16 +51,27 @@ package game.levels {
 			_moviment = 0;
 		}
 
-		private function setObjectPropertys(properties : XMLList) : void {
-			for each (var property : XML in properties) {
-				_objectProperties[property.name()] = property;
+		private function objectToDictionary(properties : Object) : Dictionary {
+			var tempProperties : Dictionary = new Dictionary();
+			for (var param : String in properties) {
+				tempProperties[param] = properties[param];
 			}
+			return tempProperties;
+		}
+
+		private function xmlToDictionary(item : XMLList) : Dictionary {
+			var tempProperties : Dictionary = new Dictionary();
+			for each (var property : XML in item.children()) {
+				tempProperties[property.name()] = property;
+			}
+			return tempProperties;
 		}
 
 		override public function handleBeginContact(contact : b2Contact) : void {
 			var collider : IBox2DPhysicsObject = Box2DUtils.CollisionGetOther(this, contact);
 
 			if (_collectorClass && collider is _collectorClass) {
+				_ce.sound.playSound("Collect");
 				onBeingCollected.dispatch(this);
 				inventory.add(new GameObject(_objectProperties));
 				kill = true;

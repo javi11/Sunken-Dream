@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="UTF-16"?>
 <Objects>
 	<items>
-		<vida50 position="levelobject">
-			<nameObject>vida50</nameObject>
-			<life>50</life>
-			<type>item</type>
-			<quantity>1</quantity>
-			<texture>vida</texture>
-			<action>heal</action>
-			<x>1107</x>
-			<y>180</y>			
-			<description>Te cura hasta 50 puntos de vida</description>
-		</vida50>
 		<diario position="levelobject">
 			 <nameObject>Diario</nameObject>
 			 <type>item</type>
@@ -19,48 +8,22 @@
 			 <quantity>1</quantity>
 			 <texture>diario</texture>
 			 <action>page</action>
-			 <x>1402</x>
-			 <y>280</y>
+			 <x>1490</x>
+			 <y>650</y>
 			 <description>Diário de abordo de Jon Smith</description>
 		</diario>
-		<palanca position="levelobject">
-		  <nameObject>Palanca</nameObject>
-		  <type>key</type>
-		  <quantity>1</quantity>
-		  <texture>palanca</texture>
-		  <action>use</action>
-			<x>824</x>
-			<y>330</y>		  
-		  <union>Cuerda</union>
-		  <resultObject>Palanca y Cuerda</resultObject>
-		  <description>Una palanca para robar un coche :P</description>
-		  <wrongPlace>No Creo que sea el momento de usar esto</wrongPlace>
-		</palanca>
 		<llave position="levelobject">
-		  <nameObject>Llave</nameObject>
+		  <nameObject>llave</nameObject>
 		  <type>key</type>
 		  <quantity>1</quantity>
 		  <texture>llave</texture>
 		  <action>use</action>
-			<x>348</x>
-			<y>160</y>		  
+			<x>0</x>
+			<y>0</y>		  
 		  <union></union>
-		  <description>Una llave vieja</description>
-		  <wrongPlace>Me da amí que aquí no hay nada que abrir</wrongPlace>
-		</llave>
-		<cuerda position="levelobject">
-		  <nameObject>Cuerda</nameObject>
-		  <type>key</type>
-		  <quantity>1</quantity>
-		  <texture>cuerda</texture>
-		  <action>use</action>
-			<x>500</x>
-			<y>160</y>		  
-		  <union>Palanca</union>
-		  <resultObject>Palanca y Cuerda</resultObject>
-		  <description>Una cuerda bastante larga</description>
-		  <wrongPlace>Em.. como se supone que debo usar esto</wrongPlace>
-		</cuerda>	
+		  <description>Una llave, se parece a la del candado de mi bici</description>
+		  <wrongPlace>No creo que esto encage ahí</wrongPlace>
+		</llave>		
 		<palancaycuerda position="hidenobject">
 		  <nameObject>Palanca y Cuerda</nameObject>
 		  <type>key</type>
@@ -74,15 +37,27 @@
 		  <wrongPlace>Em.. como se supone que debo usar esto aquí</wrongPlace>
 		</palancaycuerda>			
 		<cococannon position="gameobject">
-			<nameObject>CocoCannon</nameObject>
+			<nameObject>Cannon</nameObject>
 			<type>weapon</type>
 			<quantity>5</quantity>
 			<texture>cococannon</texture>
-			<damage>10</damage>
+			<damage>40</damage>
 			<velX>10</velX>
 			<velY>10</velY>
+			<distance>large</distance>
 			<description>Pues unos cocos para disparar</description>		
 		</cococannon>		
+		<hit position="gameobject">
+			<nameObject>Puño</nameObject>
+			<type>weapon</type>
+			<quantity>0</quantity>
+			<texture>golpe</texture>
+			<damage>10</damage>
+			<velX>0</velX>
+			<velY>0</velY>
+			<distance>short</distance>
+			<description>Pues a puñetazo limpio</description>		
+		</hit>			
 	</items>
 	<enemys>
 	</enemys>

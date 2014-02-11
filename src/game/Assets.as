@@ -21,6 +21,10 @@ package game {
 		public static const heroConfig : Class;
 		[Embed(source="/../embed/caracters/PlayerSprite.atf",mimeType="application/octet-stream" )]
 		public static const hero : Class;
+		[Embed(source="/../embed/caracters/Pirata1.xml", mimeType="application/octet-stream")]
+		public static const pirata1Config : Class;
+		[Embed(source="/../embed/caracters/Pirata1.atf",mimeType="application/octet-stream" )]
+		public static const pirata1 : Class;		
 		/**
 		 * Objetos
 		 */
@@ -38,15 +42,21 @@ package game {
 		/**
 		 * Weapons
 		 */
-		[Embed(source="/../embed/weapons/cocoCannonSprite.xml", mimeType="application/octet-stream")]
+		[Embed(source="/../embed/weapons/weapons.xml", mimeType="application/octet-stream")]
 		public static const weaponsConfig : Class;
-		[Embed(source="/../embed/weapons/cocoCannonSprite.atf",mimeType="application/octet-stream" )]
+		[Embed(source="/../embed/weapons/weapons.atf",mimeType="application/octet-stream" )]
 		public static const weapons : Class;
 		/**
 		 * Niveles
 		 */
+		// Nivel1
 		[Embed(source="/../embed/levels/LevelA1.xml", mimeType="application/octet-stream")]
 		public static const levelA1Xml : Class;
+		[Embed(source="/../embed/levels/eventosLevelA1.xml", mimeType="application/octet-stream")]
+		public static const levelA1EventsConfig : Class;
+		[Embed(source="/../embed/levels/eventosLevelA1.atf", mimeType="application/octet-stream")]
+		public static const levelA1Events : Class;
+		
 		/**
 		 * Cache 
 		 */
@@ -98,5 +108,7 @@ package game {
 
 			return gameTextureAtlas[name];
 		}
+		
+
 	}
 }

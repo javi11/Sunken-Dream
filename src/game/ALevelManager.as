@@ -13,7 +13,7 @@ package game {
 		public function ALevelManager() : void {
 			super();
 
-			_levels = [[LevelA1, "../embed/levels/LevelA1.swf"]];
+			_levels = [LevelA1];
 		}
 
 		public function get levels() : Array {

@@ -1,4 +1,6 @@
 package game.levels {
+	import flash.events.MouseEvent;
+	import citrus.utils.objectmakers.ObjectMakerStarling;
 	import citrus.view.starlingview.AnimationSequence;
 	import citrus.view.starlingview.StarlingArt;
 
@@ -7,7 +9,10 @@ package game.levels {
 	import game.Inventory.Inventory;
 	import game.Player;
 
-	import flash.display.MovieClip;
+	import starling.textures.Texture;
+	import starling.textures.TextureAtlas;
+
+	import flash.display.Bitmap;
 	import flash.utils.Dictionary;
 
 	/**
@@ -20,12 +25,20 @@ package game.levels {
 		private var _inventory : Inventory;
 		protected var _hero : Player;
 
-		public function LevelA1(levelObjectsMC : MovieClip) : void {
-			super(levelObjectsMC);
+		public function LevelA1() : void {
+			super();
 		}
 
 		override public function initialize() : void {
 			super.initialize();
+			var bitmap : Bitmap = new _MapAtlasPng();
+			var texture : Texture = Texture.fromBitmap(bitmap);
+			var xml : XML = XML(new _MapAtlasConfig());
+			var sTextureAtlas : TextureAtlas = new TextureAtlas(texture, xml);
+
+			ObjectMakerStarling.FromTiledMap(XML(new _Map()), sTextureAtlas);
+
+			stage.color = 0x000066;
 			_inventory = Inventory.getInstance();
 			loadLvXml();
 			loadCaractersTextures();
@@ -38,42 +51,45 @@ package game.levels {
 			camera.allowRotation = true;
 			camera.enabled = true;
 			camera.reset();
+			_ce.sound.playSound("levelA1Loop");
 		}
+	
 
 		private function loadLvXml() : void {
 			var levelXmL : XML = Assets.getConfig("levelA1Xml");
 			var i : int = 0;
 			// Items
 			for each (var item : XML in levelXmL['items']['*']) {
-				var gameObject:GameObject = null;
-				if (item.@position == "levelobject") {
-					var object : LevelObjects = new LevelObjects(item['nameObject'] + "_" + i, {x:item['x'], y:item['y'], width:30, height:30, properties:item.children()});
-					add(object);
-				} else if (item.@position == "gameobject") {
+				var gameObject : GameObject = null;
+				if (item.@position == "gameobject") {
 					gameObject = new GameObject(xmlToDictionary(item));
 					_inventory.add(gameObject);
 				} else if (item.@position == "hidenobject") {
 					gameObject = new GameObject(xmlToDictionary(item));
 					_inventory.add(gameObject);
-					_inventory.status(gameObject.get("nameObject"),LOCKED);
+					_inventory.status(gameObject.get("nameObject"), LOCKED);
 				}
 				i++;
 			}
 		}
-		
-		private function xmlToDictionary(item:XML):Dictionary {
+
+		private function xmlToDictionary(item : XML) : Dictionary {
 			var tempProperties : Dictionary = new Dictionary();
 			for each (var property : XML in item.children()) {
 				tempProperties[property.name()] = property;
 			}
 			return tempProperties;
 		}
+
 		private function loadCaractersTextures() : void {
 			// Héroe
-			var animation : AnimationSequence = new AnimationSequence(Assets.getAtlas('hero'), ["walk", "duck", "idle", "jump", "hurt", "talk"], "idle");
-			_hero = new Player("Player", {x:40, y:10, width:56, height:136, view:animation});
-			add(_hero);
-			StarlingArt.setLoopAnimations(["idle","talk"]);
+			var animation : AnimationSequence = new AnimationSequence(Assets.getAtlas('hero'), ["walk", "duck", "idle", "jump", "hurt", "talk", "climbUp", "climbIdle","cocoAttack","hit"], "idle");
+			_hero = getObjectByName("Player") as Player;
+			_hero.view = animation;
+			_hero.iniPlayer();
+			_hero.setHeroCanClimbLadders(true);
+
+			StarlingArt.setLoopAnimations(["idle", "talk","climbUp","movinPlatform"]);
 		}
 
 		public function setStatus(status : int) : void {
@@ -88,5 +104,13 @@ package game.levels {
 			super.update(timeDelta);
 			// trace("/ heroX="+_hero.x+"/ heroY="+ _hero.y);
 		}
+
+		// Cargar Nivel
+		[Embed(source="/../embed/levels/levelA1.tmx", mimeType="application/octet-stream")]
+		private var _Map : Class;
+		[Embed(source="/../embed/levels/TilesLA1.png")]
+		private var _MapAtlasPng : Class;
+		[Embed(source="/../embed/levels/TilesLA1.xml" , mimeType="application/octet-stream")]
+		private var _MapAtlasConfig : Class;
 	}
 }
